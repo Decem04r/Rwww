@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +12,10 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1c1c1c;
-            color: white;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
         }
 
         .slider-container {
@@ -26,7 +26,7 @@
 
         .slider {
             display: flex;
-            transition: transform 0.5s ease;
+            transition: transform 0.7s ease;
         }
 
         .slide {
@@ -38,57 +38,140 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #333;
+            background-color: #1c1c1c;
+            color: #fff;
+            border: 2px solid #333;
+            border-radius: 10px;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00B5E2;
+        }
+
+        p, ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
             margin-bottom: 20px;
         }
 
         ul {
             list-style-type: none;
-            font-size: 1.2rem;
-            line-height: 1.8;
         }
 
-        #slide1 {
+        .slide:nth-child(odd) {
+            background-color: #252525;
+        }
+
+        .slide:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: #00B5E2;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #009bb3;
+        }
+
+        .slide img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        #slide1 h2 {
+            color: #ff4081;
+        }
+
+        #slide2 h2 {
+            color: #ffeb3b;
+        }
+
+        #slide3 h2 {
+            color: #4caf50;
+        }
+
+        .slide .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
             background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
         }
 
-        #slide2 {
-            background-color: #444;
+        .skill-card h3 {
+            color: #ffeb3b;
+            margin-bottom: 10px;
         }
 
-        #slide3 {
-            background-color: #555;
+        .skill-card p {
+            font-size: 1rem;
         }
+
     </style>
 </head>
 <body>
 
     <div class="slider-container">
         <div class="slider">
+            <!-- Slide 1: Character Introduction -->
             <div class="slide" id="slide1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Valorant_Jett_Icon.png" alt="Jett Icon">
                 <h2>Jett - The Agile Duelist</h2>
-                <p>Jett is known for her high mobility and fast-paced playstyle. She can dash around the map, making her one of the most agile agents in Valorant.</p>
+                <p>Jett is an agile duelist known for her high mobility, allowing her to outmaneuver opponents quickly. With her swift and unpredictable movement, she dominates in close combat, making her a lethal force on the battlefield.</p>
+                <button class="button">Learn More</button>
             </div>
+            <!-- Slide 2: Abilities -->
             <div class="slide" id="slide2">
                 <h2>Abilities</h2>
-                <ul>
-                    <li>Cloudburst - A smoke ability.</li>
-                    <li>Updraft - A vertical boost to reposition quickly.</li>
-                    <li>Tailwind - A dash that allows Jett to reposition in an instant.</li>
-                    <li>Ultimate: Jetstream - A powerful movement boost with enhanced abilities.</li>
-                </ul>
+                <div class="skills">
+                    <div class="skill-card">
+                        <h3>Cloudburst</h3>
+                        <p>Jett's Cloudburst is a versatile smoke ability that allows her to block vision and disrupt enemies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Updraft</h3>
+                        <p>Updraft allows Jett to boost herself upward, offering a tactical advantage for high-ground plays.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Tailwind</h3>
+                        <p>Tailwind gives Jett a dash, enabling her to reposition quickly after getting a kill or moving through the map.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Ultimate: Jetstream</h3>
+                        <p>Jetstream enhances Jett's abilities to the extreme, boosting her mobility and giving her enhanced movement for a short period of time.</p>
+                    </div>
+                </div>
+                <button class="button">View Full List</button>
             </div>
+            <!-- Slide 3: Tips and Tricks -->
             <div class="slide" id="slide3">
                 <h2>Tips and Tricks</h2>
                 <ul>
-                    <li>Use Cloudburst to block vision and take control of key positions.</li>
-                    <li>Jett's dash can be used for quick escapes or aggressive pushes.</li>
-                    <li>Mastering Updraft allows you to control vertical space and gain an advantage in high ground combat.</li>
+                    <li><strong>Cloudburst</strong> is great for blocking vision during tight moments or escaping from dangerous situations.</li>
+                    <li>Master <strong>Updraft</strong> to surprise enemies from above, and control high ground for tactical advantage.</li>
+                    <li><strong>Tailwind</strong> is perfect for repositioning and retreating, but also for aggressive pushes after taking down an enemy.</li>
+                    <li><strong>Jetstream</strong> lets you dominate a fight when used correctly. Don't waste it; make every dash count.</li>
                 </ul>
+                <button class="button">Watch Gameplay</button>
             </div>
         </div>
     </div>
