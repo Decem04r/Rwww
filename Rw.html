@@ -14,7 +14,6 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #000;
             overflow: hidden;
             color: #fff;
         }
@@ -23,7 +22,7 @@
             display: flex;
             width: 300vw;
             height: 100vh;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: transform 1s ease-in-out;
         }
 
         .page {
@@ -37,41 +36,33 @@
             overflow: hidden;
         }
 
-        /* Dynamic Backgrounds for Each Page */
-        .page1 {
-            background: linear-gradient(45deg, #00b5e2, #005f75); /* Blue for speed and agility */
-            animation: shimmer1 8s linear infinite;
+        /* Starry Sky Background */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: url('https://example.com/starry-sky.jpg') no-repeat center center;
+            background-size: cover;
+            animation: starryAnimation 40s linear infinite;
+            z-index: -2;
         }
 
-        .page2 {
-            background: linear-gradient(45deg, #ff4081, #f44336); /* Fiery warm tones for abilities */
-            animation: shimmer2 8s linear infinite;
-        }
-
-        .page3 {
-            background: linear-gradient(45deg, #00c853, #00796b); /* Fresh green for energetic feel */
-            animation: shimmer3 8s linear infinite;
-        }
-
-        @keyframes shimmer1 {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-
-        @keyframes shimmer2 {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-
-        @keyframes shimmer3 {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
+        @keyframes starryAnimation {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -100% -100%;
+            }
         }
 
         h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            color: #fff;
+            color: #00B5E2;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
@@ -80,10 +71,9 @@
             text-align: center;
             margin-bottom: 30px;
             line-height: 1.6;
-            max-width: 800px;
         }
 
-        /* SVG Icons */
+        /* Custom SVG Icons */
         .icon {
             width: 100px;
             height: 100px;
@@ -139,8 +129,9 @@
     <div class="container" id="slider">
         <!-- Page 1: Jett Intro -->
         <div class="page page1">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFF">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00B5E2">
                 <path d="M12 0L7.735 11H16.265L12 0ZM12 2.36L14.88 9H9.12L12 2.36Z" />
+                <path d="M12 24L16.265 13H7.735L12 24ZM12 21.64L9.12 15H14.88L12 21.64Z" />
             </svg>
             <h1>Jett - The Agile Duelist</h1>
             <p>Jett is a high-mobility agent in *Valorant*, specializing in outmaneuvering opponents with speed and agility.</p>
@@ -151,6 +142,8 @@
         <div class="page page2">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFEB3B">
                 <circle cx="12" cy="12" r="10" stroke="#FFEB3B" stroke-width="2" fill="none" />
+                <line x1="12" y1="7" x2="12" y2="12" stroke="#FFEB3B" stroke-width="2" />
+                <line x1="12" y1="12" x2="16" y2="14" stroke="#FFEB3B" stroke-width="2" />
             </svg>
             <h1>Abilities</h1>
             <p>Jett's toolkit includes smoke grenades, dashes, and an ultimate knife skill for eliminating enemies efficiently.</p>
@@ -190,3 +183,4 @@
     </script>
 </body>
 </html>
+
