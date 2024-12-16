@@ -44,8 +44,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(50, 0, 100, 0.8), rgba(10, 0, 40, 1));
-            animation: rotateBackground 20s linear infinite;
+            background: linear-gradient(135deg, rgba(50, 0, 100, 0.9), rgba(10, 0, 40, 1));
+            animation: none;
             z-index: -2;
         }
 
@@ -57,8 +57,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(30, 0, 60, 0.8), rgba(10, 0, 80, 1));
-            animation: rotateBackground 20s linear infinite;
+            background: linear-gradient(135deg, rgba(30, 0, 60, 0.9), rgba(10, 0, 80, 1));
+            animation: none;
             z-index: -2;
         }
 
@@ -70,19 +70,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(60, 0, 150, 0.8), rgba(20, 0, 90, 1));
-            animation: rotateBackground 20s linear infinite;
+            background: linear-gradient(135deg, rgba(60, 0, 150, 0.9), rgba(20, 0, 90, 1));
+            animation: none;
             z-index: -2;
-        }
-
-        /* Background animation */
-        @keyframes rotateBackground {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         h1 {
