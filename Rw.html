@@ -14,15 +14,16 @@
         body {
             font-family: 'Arial', sans-serif;
             overflow: hidden;
-            background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+            background: linear-gradient(135deg, #0a192f, #1e293b, #14213d);
+            color: white;
         }
 
         .container {
             display: flex;
             flex-direction: row;
-            width: 300vw; /* 3 screens */
+            width: 300vw;
             height: 100vh;
-            transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1), scale 0.8s ease-in-out;
+            transition: transform 0.8s ease-in-out;
         }
 
         .page {
@@ -34,90 +35,104 @@
             align-items: center;
             text-align: center;
             padding: 40px;
-            color: white;
             position: relative;
             overflow: hidden;
         }
 
-        /* Background floating patterns */
-        .floating-pattern {
+        /* Dynamic smoke and dart effects */
+        .smoke {
             position: absolute;
+            background: rgba(255, 255, 255, 0.1);
             width: 200px;
             height: 200px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            animation: float 6s infinite alternate ease-in-out;
+            animation: floatSmoke 10s infinite ease-in-out;
         }
 
-        .floating-pattern:nth-child(2) {
-            top: 10%;
+        .smoke:nth-child(2) {
+            top: 20%;
             left: 70%;
-            animation-delay: 2s;
+            animation-delay: 3s;
         }
 
-        .floating-pattern:nth-child(3) {
-            top: 70%;
-            left: 10%;
-            animation-delay: 4s;
-        }
-
-        .floating-pattern:nth-child(4) {
-            top: 50%;
-            left: 50%;
+        .smoke:nth-child(3) {
+            top: 60%;
+            left: 20%;
             animation-delay: 6s;
         }
 
-        @keyframes float {
+        @keyframes floatSmoke {
             from {
-                transform: translateY(0px);
+                transform: scale(1) translateY(0);
             }
             to {
-                transform: translateY(20px);
+                transform: scale(1.2) translateY(-20px);
+            }
+        }
+
+        .dart {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/74/Valorant_Jett_Icon.png') no-repeat center / contain;
+            animation: rotateDart 8s infinite linear;
+        }
+
+        .dart:nth-child(2) {
+            top: 50%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        @keyframes rotateDart {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
             }
         }
 
         /* Page-specific styles */
         .page1 {
-            background: linear-gradient(135deg, #1E3A8A, #1EB3E8);
+            background: radial-gradient(circle at top, #1e293b, #14213d);
         }
 
         .page2 {
-            background: linear-gradient(135deg, #D97706, #FACC15);
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
         }
 
         .page3 {
-            background: linear-gradient(135deg, #10B981, #3B82F6);
+            background: linear-gradient(135deg, #ff006e, #fb5607);
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1s ease forwards;
         }
 
         p {
             font-size: 1.5rem;
             margin-bottom: 20px;
             line-height: 1.6;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            animation-delay: 0.5s;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         button {
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.8);
             color: #000;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s, background 0.3s;
         }
 
         button:hover {
-            background-color: white;
+            background: white;
+            transform: scale(1.1);
         }
 
         .navigation {
@@ -147,60 +162,42 @@
         .active {
             background-color: white;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Page 1: Introduction -->
         <div class="page page1">
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
+            <div class="smoke"></div>
+            <div class="dart"></div>
             <h1>Jett - The Agile Duelist</h1>
-            <p>Known for her mobility and agility, Jett dominates with her unpredictable movement and lethal precision.</p>
-            <button onclick="window.open('https://val.qq.com/main.html', '_blank')">Learn More</button>
+            <p>Jett's unmatched mobility and agility make her a lethal duelist on the battlefield.</p>
+            <button onclick="window.open('https://val.qq.com/main.html', '_blank')">Explore Jett</button>
         </div>
 
         <!-- Page 2: Abilities -->
         <div class="page page2">
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
+            <div class="smoke"></div>
             <h1>Abilities</h1>
-            <p>Master Jett's skills to outmaneuver your enemies:</p>
+            <p>Master Jett's abilities to outmaneuver and outplay opponents:</p>
             <ul>
-                <li><strong>Cloudburst:</strong> Block enemy vision with quick smokes.</li>
-                <li><strong>Updraft:</strong> Gain vertical mobility to surprise enemies.</li>
-                <li><strong>Tailwind:</strong> Dash quickly to reposition or escape.</li>
-                <li><strong>Blade Storm:</strong> Deadly knives for precise takedowns.</li>
+                <li><img src="cloud_icon_url" alt="Cloudburst" style="width:40px;"> **Cloudburst**: Block vision with her quick smokes.</li>
+                <li><img src="updraft_icon_url" alt="Updraft" style="width:40px;"> **Updraft**: Leap into unexpected positions.</li>
+                <li><img src="dash_icon_url" alt="Dash" style="width:40px;"> **Tailwind**: Dash to reposition or escape.</li>
             </ul>
         </div>
 
         <!-- Page 3: Tips -->
         <div class="page page3">
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
-            <div class="floating-pattern"></div>
+            <div class="dart"></div>
             <h1>Tips & Tricks</h1>
-            <p>Master Jett with these strategies:</p>
+            <p>Become the ultimate duelist:</p>
             <ul>
-                <li>Use *Updraft* to gain unexpected high ground advantages.</li>
-                <li>Pair *Tailwind* with aggressive pushes or escapes.</li>
-                <li>Leverage *Cloudburst* to obscure enemy vision during critical moments.</li>
-                <li>Activate *Blade Storm* for clutch plays and precise eliminations.</li>
+                <li>Use *Cloudburst* to block crucial sightlines.</li>
+                <li>Combine *Updraft* with surprise attacks.</li>
+                <li>Dash aggressively after a kill.</li>
             </ul>
-            <button onclick="alert('Stay sharp, and dominate!')">Get Started</button>
+            <button onclick="alert('Time to dominate!')">Learn More</button>
         </div>
     </div>
 
@@ -226,7 +223,6 @@
             });
         }
 
-        // Auto-scroll between pages every 5 seconds
         setInterval(() => {
             currentIndex = (currentIndex + 1) % 3;
             navigateTo(currentIndex);
