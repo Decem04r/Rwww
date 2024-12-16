@@ -16,6 +16,7 @@
             background-color: #121212;
             color: #fff;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .slider-container {
@@ -26,18 +27,19 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
         }
 
         .slider {
             display: flex;
-            transition: transform 0.7s ease;
+            transition: transform 0.7s ease-in-out;
             width: 100vw;
         }
 
         .slide {
             min-width: 100vw;
             height: 100vh;
-            padding: 50px;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -45,25 +47,27 @@
             text-align: center;
             background-color: #1c1c1c;
             color: #fff;
-            border: 2px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             color: #00B5E2;
+            font-weight: 600;
         }
 
         p, ul {
-            font-size: 1.5rem;
-            line-height: 1.6;
+            font-size: 1.4rem;
             margin-bottom: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         ul {
             list-style-type: none;
+            padding-left: 0;
         }
 
         .slide:nth-child(odd) {
@@ -78,23 +82,24 @@
             padding: 20px 40px;
             background-color: #00B5E2;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
         }
 
         .button:hover {
             background-color: #009bb3;
+            transform: scale(1.05);
         }
 
         .slide img {
-            width: 200px;
+            width: 220px;
             border-radius: 50%;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         #slide1 h2 {
@@ -109,10 +114,10 @@
             color: #4caf50;
         }
 
-        .slide .skills {
+        .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -120,9 +125,14 @@
         .skill-card {
             background-color: #333;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
         }
 
         .skill-card h3 {
@@ -136,7 +146,7 @@
 
         .full-list {
             display: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #ffeb3b;
             margin-top: 20px;
         }
@@ -150,7 +160,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             align-items: center;
             justify-content: center;
         }
@@ -159,9 +169,9 @@
             position: relative;
             background-color: #fff;
             padding: 20px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .modal iframe {
@@ -178,6 +188,7 @@
             color: #ff4081;
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
@@ -236,7 +247,7 @@
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModalBtn">&times;</span>
-            <iframe id="gameplayVideo" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="gameplayVideo" src="https://www.youtube.com/embed/xyz123456" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -253,6 +264,276 @@
             }
 
             const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex *Here’s the complete updated code that incorporates all the requested changes, including the button functionality, enhanced visuals, smooth transitions, and content updates:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jett - Valorant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+            width: 100vw;
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: 100vh;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #1c1c1c;
+            color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #00B5E2;
+            font-weight: 600;
+        }
+
+        p, ul {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .slide:nth-child(odd) {
+            background-color: #252525;
+        }
+
+        .slide:nth-child(even) {
+            background-color: #2c2c2c;
+        }
+
+        .button {
+            padding: 20px 40px;
+            background-color: #00B5E2;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .button:hover {
+            background-color: #009bb3;
+            transform: scale(1.05);
+        }
+
+        .slide img {
+            width: 220px;
+            border-radius: 50%;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        #slide1 h2 {
+            color: #ff4081;
+        }
+
+        #slide2 h2 {
+            color: #ffeb3b;
+        }
+
+        #slide3 h2 {
+            color: #4caf50;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            color: #ffeb3b;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            font-size: 1.2rem;
+        }
+
+        .full-list {
+            display: none;
+            font-size: 1.3rem;
+            color: #ffeb3b;
+            margin-top: 20px;
+        }
+
+        /* Modal Video */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: #ff4081;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider">
+            <!-- Slide 1: Character Introduction -->
+            <div class="slide" id="slide1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Valorant_Jett_Icon.png" alt="Jett Icon">
+                <h2>Jett - The Agile Duelist</h2>
+                <p>Jett is an agile duelist known for her high mobility, allowing her to outmaneuver opponents quickly. With her swift and unpredictable movement, she dominates in close combat, making her a lethal force on the battlefield.</p>
+                <button class="button" id="learnMoreBtn">Learn More</button>
+            </div>
+            <!-- Slide 2: Abilities -->
+            <div class="slide" id="slide2">
+                <h2>Abilities</h2>
+                <div class="skills">
+                    <div class="skill-card">
+                        <h3>Cloudburst</h3>
+                        <p>Jett's Cloudburst is a versatile smoke ability that allows her to block vision and disrupt enemies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Updraft</h3>
+                        <p>Updraft allows Jett to boost herself upward, offering a tactical advantage for high-ground plays.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Tailwind</h3>
+                        <p>Tailwind gives Jett a dash, enabling her to reposition quickly after getting a kill or moving through the map.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Ultimate: Jetstream</h3>
+                        <p>Jetstream enhances Jett's abilities to the extreme, boosting her mobility and giving her enhanced movement for a short period of time.</p>
+                    </div>
+                </div>
+                <button class="button" id="viewFullListBtn">View Full List</button>
+                <div class="full-list" id="fullList">
+                    <p>More detailed list of Jett's abilities...</p>
+                    <p>Details about each ability, its tactical use, and counterplays.</p>
+                </div>
+            </div>
+            <!-- Slide 3: Tips and Tricks -->
+            <div class="slide" id="slide3">
+                <h2>Tips and Tricks</h2>
+                <ul>
+                    <li><strong>Cloudburst</strong> is great for blocking vision during tight moments or escaping from dangerous situations.</li>
+                    <li>Master <strong>Updraft</strong> to surprise enemies from above, and control high ground for tactical advantage.</li>
+                    <li><strong>Tailwind</strong> is perfect for repositioning and retreating, but also for aggressive pushes after taking down an enemy.</li>
+                    <li><strong>Jetstream</strong> lets you dominate a fight when used correctly. Don't waste it; make every dash count.</li>
+                </ul>
+                <button class="button" id="watchGameplayBtn">Watch Gameplay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Video -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <iframe id="gameplayVideo" src="https://www.youtube.com/embed/xyz123456" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function changeSlide() {
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+
+            const slider = document.querySelector
+    const slider = document.querySelector('.slider');
             slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
         }
 
@@ -260,34 +541,38 @@
             setInterval(() => {
                 currentIndex++;
                 changeSlide();
-            }, 3000); // Change slide every 3 seconds
+            }, 4000); // Change slide every 4 seconds
         });
 
-        // Button functionality
+        // Button functionalities
         document.getElementById('learnMoreBtn').addEventListener('click', () => {
-            window.location.href = 'https://www.valorant.com'; // Redirect to Valorant's official page for Jett
+            window.location.href = 'https://val.qq.com/main.html';
         });
 
         document.getElementById('viewFullListBtn').addEventListener('click', () => {
             const fullList = document.getElementById('fullList');
-            fullList.style.display = fullList.style.display === 'none' || fullList.style.display === '' ? 'block' : 'none';
+            fullList.style.display = fullList.style.display === 'block' ? 'none' : 'block';
         });
 
-        document.getElementById('watchGameplayBtn').addEventListener('click', () => {
-            const modal = document.getElementById('videoModal');
-            modal.style.display = 'flex'; // Show the modal with the video
+        // Modal functionality for gameplay video
+        const videoModal = document.getElementById('videoModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const watchGameplayBtn = document.getElementById('watchGameplayBtn');
+
+        watchGameplayBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
         });
 
-        // Close modal
-        document.getElementById('closeModalBtn').addEventListener('click', () => {
-            const modal = document.getElementById('videoModal');
-            modal.style.display = 'none'; // Hide the modal
+        closeModalBtn.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.style.display = 'none';
+            }
         });
     </script>
 
 </body>
 </html>
-
-
-
-
