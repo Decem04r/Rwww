@@ -57,12 +57,19 @@
             100% { opacity: 1; }
         }
 
+        /* Floating effect for text */
+        @keyframes textFloat {
+            0% { transform: translateY(-20px); opacity: 0; }
+            50% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+
         h1 {
             font-size: 4rem;
             margin-bottom: 20px;
             color: #fff;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s forwards;
+            animation: textFloat 4s ease-in-out infinite;
         }
 
         p {
@@ -70,6 +77,20 @@
             text-align: center;
             margin-bottom: 30px;
             line-height: 1.6;
+            animation: textFloat 3s ease-in-out infinite;
+        }
+
+        /* Animated Icons */
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            animation: rotateIcon 10s linear infinite;
+        }
+
+        @keyframes rotateIcon {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .button {
@@ -129,6 +150,10 @@
     <div class="container" id="slider">
         <!-- Page 1: Jett Intro -->
         <div class="page page1">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00B5E2">
+                <path d="M12 0L7.735 11H16.265L12 0ZM12 2.36L14.88 9H9.12L12 2.36Z" />
+                <path d="M12 24L16.265 13H7.735L12 24ZM12 21.64L9.12 15H14.88L12 21.64Z" />
+            </svg>
             <h1>Jett - The Agile Duelist</h1>
             <p>Jett is a high-mobility agent in *Valorant*, specializing in outmaneuvering opponents with speed and agility.</p>
             <button class="button" onclick="location.href='https://val.qq.com/main.html'">Learn More</button>
@@ -136,6 +161,11 @@
 
         <!-- Page 2: Jett Abilities -->
         <div class="page page2">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFEB3B">
+                <circle cx="12" cy="12" r="10" stroke="#FFEB3B" stroke-width="2" fill="none" />
+                <line x1="12" y1="7" x2="12" y2="12" stroke="#FFEB3B" stroke-width="2" />
+                <line x1="12" y1="12" x2="16" y2="14" stroke="#FFEB3B" stroke-width="2" />
+            </svg>
             <h1>Abilities</h1>
             <p>Jett's toolkit includes smoke grenades, dashes, and an ultimate knife skill for eliminating enemies efficiently.</p>
             <button class="button" onclick="location.href='https://val.qq.com/game-data.html?pageType=1&&heroId=2'">See All Abilities</button>
@@ -143,6 +173,9 @@
 
         <!-- Page 3: Tips and Tricks -->
         <div class="page page3">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF4081">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
             <h1>Tips and Tricks</h1>
             <p>Use Cloudburst to block vision, Tailwind for quick escapes, and master her ultimate for precise eliminations.</p>
             <button class="button" onclick="location.href='https://www.youtube.com/results?search_query=valorant+jett+tips'">Watch Gameplay</button>
@@ -172,5 +205,4 @@
 
 </body>
 </html>
-
 
