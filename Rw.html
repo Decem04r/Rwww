@@ -1,112 +1,122 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>双城之战故事</title>
+    <title>Jett - Valorant</title>
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        h1 {
-            color: #007bff;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 20px 0;
-            font-size: 36px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            background-color: #333;
         }
 
         h2 {
-            color: #555;
-            font-size: 28px;
-            margin-top: 30px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        h3 {
-            color: #444;
-            font-size: 22px;
-            margin-top: 20px;
-        }
-
-        em {
-            font-style: italic;
-            color: #777;
-        }
-
-        i {
-            font-style: italic;
-            color: #777;
-        }
-
-        strong {
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        sup {
-            vertical-align: super;
-            font-size: smaller;
-            color: #999;
-        }
-
-        sub {
-            vertical-align: sub;
-            font-size: smaller;
-            color: #999;
-        }
-
-        ol,
         ul {
-            padding-left: 30px;
+            list-style-type: none;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
-        li {
-            margin-bottom: 10px;
-            font-size: 16px;
+        #slide1 {
+            background-color: #333;
         }
 
-        p {
-            font-size: 16px;
-            margin-top: 15px;
+        #slide2 {
+            background-color: #444;
+        }
+
+        #slide3 {
+            background-color: #555;
         }
     </style>
 </head>
-
 <body>
-    <h1>双城之战故事</h1>
-    <h2>《双城之战 1》</h2>
-    <p>《双城之战 1》以皮尔特沃夫和祖安两座城市为背景，为我们展现了一个充满冲突与情感纠葛的精彩世界。</p>
-    <h3>主要角色</h3>
-    <ul>
-        <li>蔚：勇敢无畏的女战士，<em>心中充满正义</em>。她的坚毅与果敢令人钦佩。</li>
-        <li>金克丝：疯狂而又充满创造力的少女，<i>行为常常出人意料</i>。她的独特魅力让人难以忘怀。</li>
-        <li>杰斯：天才发明家，致力于推动皮尔特沃夫的科技进步<strong>，但也面临着诸多挑战</strong>。他的智慧与勇气将引领未来。</li>
-    </ul>
-    <h3>故事剧情</h3>
-    <ol>
-        <li>皮尔特沃夫和祖安之间的紧张关系不断升级，资源争夺成为主要矛盾之一。双方的冲突一触即发。</li>
-        <li>蔚和金克丝这对姐妹在冲突中逐渐走向不同的道路<sup>，她们的命运充满了不确定性</sup>。她们的选择将决定双城的未来。</li>
-        <li>杰斯的发明引发了一系列连锁反应，对双城的未来产生了重大影响。他的科技成果将改变世界。</li>
-    </ol>
-    <h2>《双城之战 2》</h2>
-    <p>《双城之战 2》延续了第一部的精彩，带来了更加惊心动魄的剧情。</p>
-    <h3>新的挑战</h3>
-    <ul>
-        <li>双城之间的冲突进一步加剧，新的势力加入其中。局势变得更加复杂。</li>
-        <li>蔚和金克丝必须面对自己的过去，做出艰难的选择<sub>，她们的决定将影响整个双城的命运</sub>。她们的成长与救赎令人期待。</li>
-        <li>杰斯继续探索科技的边界，但也面临着道德和伦理的
 
-<p>before iframe</p>
-<iframe width=1280 height=480 src="https://val.qq.com/game-data.html?pageType=1&&heroId=2"></iframe>
-<p>after iframe</p>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide" id="slide1">
+                <h2>Jett - The Agile Duelist</h2>
+                <p>Jett is known for her high mobility and fast-paced playstyle. She can dash around the map, making her one of the most agile agents in Valorant.</p>
+            </div>
+            <div class="slide" id="slide2">
+                <h2>Abilities</h2>
+                <ul>
+                    <li>Cloudburst - A smoke ability.</li>
+                    <li>Updraft - A vertical boost to reposition quickly.</li>
+                    <li>Tailwind - A dash that allows Jett to reposition in an instant.</li>
+                    <li>Ultimate: Jetstream - A powerful movement boost with enhanced abilities.</li>
+                </ul>
+            </div>
+            <div class="slide" id="slide3">
+                <h2>Tips and Tricks</h2>
+                <ul>
+                    <li>Use Cloudburst to block vision and take control of key positions.</li>
+                    <li>Jett's dash can be used for quick escapes or aggressive pushes.</li>
+                    <li>Mastering Updraft allows you to control vertical space and gain an advantage in high ground combat.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function changeSlide() {
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(() => {
+                currentIndex++;
+                changeSlide();
+            }, 3000); // Change slide every 3 seconds
+        });
+    </script>
+
+</body>
+</html>
+
