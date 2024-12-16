@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jett - Valorant</title>
     <style>
+        /* Reset and global styling */
         * {
             margin: 0;
             padding: 0;
@@ -13,14 +14,13 @@
 
         body {
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
             overflow: hidden;
-            background: linear-gradient(135deg, #0a192f, #1e293b, #14213d);
-            color: white;
+            color: #ffffff;
         }
 
         .container {
             display: flex;
-            flex-direction: row;
             width: 300vw;
             height: 100vh;
             transition: transform 0.8s ease-in-out;
@@ -33,205 +33,145 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             padding: 40px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        /* Dynamic smoke and dart effects */
-        .smoke {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            animation: floatSmoke 10s infinite ease-in-out;
-        }
-
-        .smoke:nth-child(2) {
-            top: 20%;
-            left: 70%;
-            animation-delay: 3s;
-        }
-
-        .smoke:nth-child(3) {
-            top: 60%;
-            left: 20%;
-            animation-delay: 6s;
-        }
-
-        @keyframes floatSmoke {
-            from {
-                transform: scale(1) translateY(0);
-            }
-            to {
-                transform: scale(1.2) translateY(-20px);
-            }
-        }
-
-        .dart {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/7/74/Valorant_Jett_Icon.png') no-repeat center / contain;
-            animation: rotateDart 8s infinite linear;
-        }
-
-        .dart:nth-child(2) {
-            top: 50%;
-            left: 80%;
-            animation-delay: 2s;
-        }
-
-        @keyframes rotateDart {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Page-specific styles */
+        /* Backgrounds for each page */
         .page1 {
-            background: radial-gradient(circle at top, #1e293b, #14213d);
+            background: radial-gradient(circle at center, #2b2b2b, #1a1a1a);
         }
 
         .page2 {
-            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            background: linear-gradient(to bottom right, #3b3b3b, #1c1c1c);
         }
 
         .page3 {
-            background: linear-gradient(135deg, #ff006e, #fb5607);
+            background: linear-gradient(to bottom, #4a4a4a, #2d2d2d);
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+            color: #00B5E2;
         }
 
         p {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             line-height: 1.6;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
-        button {
-            padding: 15px 30px;
+        /* Button styles */
+        .button {
+            padding: 15px 40px;
+            background-color: #00B5E2;
             border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.8);
-            color: #000;
+            border-radius: 10px;
+            color: white;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        button:hover {
-            background: white;
-            transform: scale(1.1);
+        .button:hover {
+            background-color: #009bb3;
+            transform: scale(1.05);
         }
 
-        .navigation {
-            position: fixed;
+        /* Custom SVG icons */
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .nav-btn {
+        .nav-button {
             width: 15px;
             height: 15px;
-            background-color: rgba(255, 255, 255, 0.6);
-            border: none;
             border-radius: 50%;
+            background-color: #666;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .nav-btn:hover {
+        .nav-button.active {
+            background-color: #00B5E2;
             transform: scale(1.2);
-            background-color: white;
         }
 
-        .active {
-            background-color: white;
+        .nav-button:hover {
+            background-color: #009bb3;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Page 1: Introduction -->
+    <div class="container" id="slider">
+        <!-- Page 1: Jett Intro -->
         <div class="page page1">
-            <div class="smoke"></div>
-            <div class="dart"></div>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00B5E2">
+                <path d="M12 0L7.735 11H16.265L12 0ZM12 2.36L14.88 9H9.12L12 2.36Z" />
+                <path d="M12 24L16.265 13H7.735L12 24ZM12 21.64L9.12 15H14.88L12 21.64Z" />
+            </svg>
             <h1>Jett - The Agile Duelist</h1>
-            <p>Jett's unmatched mobility and agility make her a lethal duelist on the battlefield.</p>
-            <button onclick="window.open('https://val.qq.com/main.html', '_blank')">Explore Jett</button>
+            <p>Jett is a high-mobility agent in *Valorant*, specializing in outmaneuvering opponents with speed and agility.</p>
+            <button class="button" onclick="location.href='https://val.qq.com/main.html'">Learn More</button>
         </div>
 
-        <!-- Page 2: Abilities -->
+        <!-- Page 2: Jett Abilities -->
         <div class="page page2">
-            <div class="smoke"></div>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFEB3B">
+                <circle cx="12" cy="12" r="10" stroke="#FFEB3B" stroke-width="2" fill="none" />
+                <line x1="12" y1="7" x2="12" y2="12" stroke="#FFEB3B" stroke-width="2" />
+                <line x1="12" y1="12" x2="16" y2="14" stroke="#FFEB3B" stroke-width="2" />
+            </svg>
             <h1>Abilities</h1>
-            <p>Master Jett's abilities to outmaneuver and outplay opponents:</p>
-            <ul>
-                <li><img src="cloud_icon_url" alt="Cloudburst" style="width:40px;"> **Cloudburst**: Block vision with her quick smokes.</li>
-                <li><img src="updraft_icon_url" alt="Updraft" style="width:40px;"> **Updraft**: Leap into unexpected positions.</li>
-                <li><img src="dash_icon_url" alt="Dash" style="width:40px;"> **Tailwind**: Dash to reposition or escape.</li>
-            </ul>
+            <p>Jett's toolkit includes smoke grenades, dashes, and an ultimate knife skill for eliminating enemies efficiently.</p>
+            <button class="button" onclick="location.href='https://val.qq.com/game-data.html?pageType=1&&heroId=2'">See All Abilities</button>
         </div>
 
-        <!-- Page 3: Tips -->
+        <!-- Page 3: Tips and Tricks -->
         <div class="page page3">
-            <div class="dart"></div>
-            <h1>Tips & Tricks</h1>
-            <p>Become the ultimate duelist:</p>
-            <ul>
-                <li>Use *Cloudburst* to block crucial sightlines.</li>
-                <li>Combine *Updraft* with surprise attacks.</li>
-                <li>Dash aggressively after a kill.</li>
-            </ul>
-            <button onclick="alert('Time to dominate!')">Learn More</button>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF4081">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            <h1>Tips and Tricks</h1>
+            <p>Use Cloudburst to block vision, Tailwind for quick escapes, and master her ultimate for precise eliminations.</p>
+            <button class="button" onclick="location.href='https://www.youtube.com/results?search_query=valorant+jett+tips'">Watch Gameplay</button>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <div class="navigation">
-        <button class="nav-btn active" onclick="navigateTo(0)"></button>
-        <button class="nav-btn" onclick="navigateTo(1)"></button>
-        <button class="nav-btn" onclick="navigateTo(2)"></button>
+    <div class="nav-buttons" id="navButtons">
+        <div class="nav-button active" data-index="0"></div>
+        <div class="nav-button" data-index="1"></div>
+        <div class="nav-button" data-index="2"></div>
     </div>
 
     <script>
-        let currentIndex = 0;
+        const slider = document.getElementById('slider');
+        const navButtons = document.querySelectorAll('.nav-button');
 
-        function navigateTo(index) {
-            const container = document.querySelector('.container');
-            const navButtons = document.querySelectorAll('.nav-btn');
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const index = button.getAttribute('data-index');
+                slider.style.transform = `translateX(-${index * 100}vw)`;
 
-            currentIndex = index;
-            container.style.transform = `translateX(-${index * 100}vw)`;
-
-            navButtons.forEach((btn, i) => {
-                btn.classList.toggle('active', i === index);
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
             });
-        }
-
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % 3;
-            navigateTo(currentIndex);
-        }, 5000);
+        });
     </script>
 </body>
 </html>
 
-    </script>
-
-</body>
-</html>
