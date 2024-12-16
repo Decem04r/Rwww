@@ -133,6 +133,51 @@
         .skill-card p {
             font-size: 1.2rem;
         }
+
+        .full-list {
+            display: none;
+            font-size: 1.2rem;
+            color: #ffeb3b;
+            margin-top: 20px;
+        }
+
+        /* Modal Video */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: #ff4081;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -144,7 +189,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Valorant_Jett_Icon.png" alt="Jett Icon">
                 <h2>Jett - The Agile Duelist</h2>
                 <p>Jett is an agile duelist known for her high mobility, allowing her to outmaneuver opponents quickly. With her swift and unpredictable movement, she dominates in close combat, making her a lethal force on the battlefield.</p>
-                <button class="button">Learn More</button>
+                <button class="button" id="learnMoreBtn">Learn More</button>
             </div>
             <!-- Slide 2: Abilities -->
             <div class="slide" id="slide2">
@@ -167,7 +212,11 @@
                         <p>Jetstream enhances Jett's abilities to the extreme, boosting her mobility and giving her enhanced movement for a short period of time.</p>
                     </div>
                 </div>
-                <button class="button">View Full List</button>
+                <button class="button" id="viewFullListBtn">View Full List</button>
+                <div class="full-list" id="fullList">
+                    <p>More detailed list of Jett's abilities...</p>
+                    <p>Details about each ability, its tactical use, and counterplays.</p>
+                </div>
             </div>
             <!-- Slide 3: Tips and Tricks -->
             <div class="slide" id="slide3">
@@ -178,8 +227,16 @@
                     <li><strong>Tailwind</strong> is perfect for repositioning and retreating, but also for aggressive pushes after taking down an enemy.</li>
                     <li><strong>Jetstream</strong> lets you dominate a fight when used correctly. Don't waste it; make every dash count.</li>
                 </ul>
-                <button class="button">Watch Gameplay</button>
+                <button class="button" id="watchGameplayBtn">Watch Gameplay</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal for Video -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <iframe id="gameplayVideo" src="https://www.youtube.com/embed/xyz123456" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -205,11 +262,28 @@
                 changeSlide();
             }, 3000); // Change slide every 3 seconds
         });
+
+        // Button functionality
+        document.getElementById('learnMoreBtn').addEventListener('click', () => {
+            window.location.href = 'https://www.valorant.com'; // Redirect to Valorant's official page for Jett
+        });
+
+        document.getElementById('viewFullListBtn').addEventListener('click', () => {
+            const fullList = document.getElementById('fullList');
+            fullList.style.display = fullList.style.display === 'none' || fullList.style.display === '' ? 'block' : 'none';
+        });
+
+        document.getElementById('watchGameplayBtn').addEventListener('click', () => {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'flex'; // Show the modal with the video
+        });
+
+        // Close modal
+        document.getElementById('closeModalBtn').addEventListener('click', () => {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'none'; // Hide the modal
+        });
     </script>
 
 </body>
 </html>
-
-
-
-
